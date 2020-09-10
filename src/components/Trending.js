@@ -9,7 +9,7 @@ const WrapperImages = styled.section`
   margin: 4rem auto;
   display: grid;
   grid-gap: 0.5em;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-auto-rows: 400px;
 `;
 function Trending() {
@@ -24,14 +24,16 @@ function Trending() {
     const accessKey = process.env.REACT_APP_ACCESSKEY;
 
     axios
-      .get(`${apiRoot}/photos/random?client_id=${accessKey}&count=${count}`)
+      .get(
+        `${apiRoot}/collections/1580860/photos?&client_id=${accessKey}&count=${count}`
+      )
       .then((res) => {
         setImage([...images, ...res.data]);
       });
   };
   return (
     <div>
-      <h1>Trending</h1>
+      <h1 style={{ marginLeft: 20 }}>Trending</h1>
       <InfiniteScroll
         dataLength={images.length}
         next={fetchImages}

@@ -9,7 +9,7 @@ const WrapperImages = styled.section`
   margin: 4rem auto;
   display: grid;
   grid-gap: 1em;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-auto-rows: 400px;
 `;
 function Home() {
@@ -33,7 +33,7 @@ function Home() {
   };
   return (
     <div>
-      <h1>My Gallery</h1>
+      <h1 style={{ marginLeft: 20 }}>My Gallery</h1>
       <InfiniteScroll
         dataLength={images.length}
         next={fetchImages}
